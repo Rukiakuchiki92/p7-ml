@@ -7,3 +7,5 @@ notebook
 matplotlib
 shap
 lime
+fastapi
+uvicorn
