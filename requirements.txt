@@ -1,11 +1,27 @@
-pandas
-scikit-learn
-seaborn
-plotly
+# tools 
 jupyter
 notebook
+
+# data 
+pandas
+
+# viz 
+seaborn
+plotly
 matplotlib
+
+# ml 
+scikit-learn
 shap
 lime
+
+# api 
 fastapi
 uvicorn
+
+# qa
+black
+flake8
+isort 
+pytest
+
