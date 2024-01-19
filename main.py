@@ -46,6 +46,23 @@ def get_list_ids():
     return {"list_ids": list_ids}
 
 
+@app.get("/get_population_summary/")
+def get_population_summary():
+    """Return population summary"""
+
+    # load the df
+    # build the describe of the df
+    # round 2 values if needed
+    # return the describe
+
+    population_summary = {
+        "AGE": {"mean": 30, "std": 5},
+        "SALARY": {"mean": 1000, "std": 200},
+        "FLAG_OWN_CAR": {"mean": 0.5, "std": 0.5},
+    }
+    return {"population_summary": population_summary}
+
+
 @app.get("/get_client_info/{client_id}")
 def get_client_info(client_id):
     """Return data dict for a client"""
@@ -83,7 +100,7 @@ def get_prediction(client_id):
     return {"client_predit": client_predit}
 
 
-@app.get("/get_population_info/{client_id}")
+@app.get("/get_shap/{client_id}")
 def get_shap(client_id):
     """Return shap values for a client"""
 
@@ -100,20 +117,3 @@ def get_shap(client_id):
     }
 
     return {"client_shap": client_shap}
-
-
-@app.get("/get_population_summary/")
-def get_population_summary():
-    """Return population summary"""
-
-    # load the df
-    # build the describe of the df
-    # round 2 values if needed
-    # return the describe
-
-    population_summary = {
-        "AGE": {"mean": 30, "std": 5},
-        "SALARY": {"mean": 1000, "std": 200},
-        "FLAG_OWN_CAR": {"mean": 0.5, "std": 0.5},
-    }
-    return {"population_summary": population_summary}
