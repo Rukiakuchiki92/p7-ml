@@ -11,10 +11,24 @@ import pandas as pd
 
 from typing import Hashable, Any
 
+""" fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> dict[str, Any]
+
+:param  original_dict: dictionnaire d'entrée de la fonction
+
+returns dict[str, Any]
+"""
 def convert_dictionary(original_dict: dict[Hashable, Any]) -> dict[str, Any]:
     new_dict = {str(key): value for key, value in original_dict.items()}
     return new_dict
 
+
+
+""" fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> list[tuple[str, Any]]
+
+:param  original_dict: dictionnaire d'entrée de la fonction
+
+returns list[tuple[str, Any]]
+"""
 def convert_dict_to_list(input_dict: dict[Hashable, Any]) -> list[tuple[str, Any]]:
     result_list = [(str(key), value) for key, value in input_dict.items()]
     return result_list
@@ -80,14 +94,6 @@ def get_client_info(client_id: int):
     # return the dict
     select_row = df.loc[df["ID_CLIENT"] == client_id].to_dict()
     client_info = convert_dictionary(select_row)
-
-
-    # client_info = {
-    #     "ID_CLIENT": 1,
-    #     "AGE": 30,
-    #     "SALARY": 1000,
-    #     # etc etc.
-    # }
 
     return {"client_info": client_info}
 
