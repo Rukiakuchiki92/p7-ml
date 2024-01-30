@@ -71,14 +71,14 @@ def get_population_summary():
 
 
 @app.get("/get_client_info/{client_id}")
-def get_client_info(client_id):
+def get_client_info(client_id: int):
     """Return data dict for a client"""
 
     # load the df
     # find the client with his id
     # build dict with all variables
     # return the dict
-    select_row = df.loc[df["ID_CLIENT"] == 196888].to_dict()
+    select_row = df.loc[df["ID_CLIENT"] == client_id].to_dict()
     client_info = convert_dictionary(select_row)
 
 
