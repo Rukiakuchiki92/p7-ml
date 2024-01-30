@@ -1,7 +1,7 @@
 """
 Main file of the API
 """
-
+import requests
 import json
 import pickle as pk
 
@@ -9,15 +9,21 @@ from fastapi import FastAPI
 
 import pandas as pd
 
-# from pydantic import BaseModel
+from typing import Hashable, Any
 
+def convert_dictionary(original_dict: dict[Hashable, Any]) -> dict[str, Any]:
+    new_dict = {str(key): value for key, value in original_dict.items()}
+    return new_dict
+
+def convert_dict_to_list(input_dict: dict[Hashable, Any]) -> list[tuple[str, Any]]:
+    result_list = [(str(key), value) for key, value in input_dict.items()]
+    return result_list
 
 # app
 app = FastAPI()
 
 # data
 df = pd.read_csv("app_train_sample_clean.csv")
-df.to_pickle("hello_world.pkl")
 # TODO : load shap values
 
 
@@ -37,13 +43,15 @@ def root():
 def get_list_ids():
     """Return list of ids"""
 
+    
     # load the df
     # find the list of ids
+   
     # return the list of ids
 
-    list_ids = [1, 2, 3, 4, 5]
+    #list_ids = [1, 2, 3, 4, 5]
 
-    return {"list_ids": list_ids}
+    return {"list_ids":  df["ID_CLIENT"].tolist()}
 
 
 @app.get("/get_population_summary/")
@@ -54,13 +62,12 @@ def get_population_summary():
     # build the describe of the df
     # round 2 values if needed
     # return the describe
+    select_columns = ["AGE","REVENU_TOTAL","CNT_FAM_MEMBERS"]
+    select_data = df[select_columns].describe().round(2).to_dict()
+    list_population = convert_dictionary(select_data)
+   
+    return {"population_summary": list_population}
 
-    population_summary = {
-        "AGE": {"mean": 30, "std": 5},
-        "SALARY": {"mean": 1000, "std": 200},
-        "FLAG_OWN_CAR": {"mean": 0.5, "std": 0.5},
-    }
-    return {"population_summary": population_summary}
 
 
 @app.get("/get_client_info/{client_id}")
@@ -71,13 +78,16 @@ def get_client_info(client_id):
     # find the client with his id
     # build dict with all variables
     # return the dict
+    select_row = df.loc[df["ID_CLIENT"] == 196888].to_dict()
+    client_info = convert_dictionary(select_row)
 
-    client_info = {
-        "ID_CLIENT": 1,
-        "AGE": 30,
-        "SALARY": 1000,
-        # etc etc.
-    }
+
+    # client_info = {
+    #     "ID_CLIENT": 1,
+    #     "AGE": 30,
+    #     "SALARY": 1000,
+    #     # etc etc.
+    # }
 
     return {"client_info": client_info}
 
