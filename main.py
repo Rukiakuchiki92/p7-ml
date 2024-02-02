@@ -41,11 +41,6 @@ df = pd.read_csv("app_train_sample_clean.csv")
 # TODO : load shap values
 
 
-# TODO : delete this
-# class item(BaseModel):
-#     ID_CLIENT: int
-
-
 @app.get("/")
 def root():
     """Home page"""
@@ -56,14 +51,6 @@ def root():
 @app.get("/list_ids")
 def get_list_ids():
     """Return list of ids"""
-
-    
-    # load the df
-    # find the list of ids
-   
-    # return the list of ids
-
-    #list_ids = [1, 2, 3, 4, 5]
 
     return {"list_ids":  df["ID_CLIENT"].tolist()}
 
