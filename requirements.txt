@@ -18,6 +18,7 @@ lime
 # api 
 fastapi
 uvicorn
+httpx
 
 # qa
 black
