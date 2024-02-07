@@ -1,44 +1,69 @@
 """
 Main file of the API
 """
-import requests
+
 import json
 import pickle as pk
-
-from fastapi import FastAPI
+from typing import Any, Hashable
 
 import pandas as pd
-
-from typing import Hashable, Any
-
-""" fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> dict[str, Any]
-
-:param  original_dict: dictionnaire d'entrée de la fonction
-
-returns dict[str, Any]
-"""
-def convert_dictionary(original_dict: dict[Hashable, Any]) -> dict[str, Any]:
-    new_dict = {str(key): value for key, value in original_dict.items()}
-    return new_dict
-
-
-
-""" fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> list[tuple[str, Any]]
-
-:param  original_dict: dictionnaire d'entrée de la fonction
-
-returns list[tuple[str, Any]]
-"""
-def convert_dict_to_list(input_dict: dict[Hashable, Any]) -> list[tuple[str, Any]]:
-    result_list = [(str(key), value) for key, value in input_dict.items()]
-    return result_list
-
-# app
-app = FastAPI()
+import requests
+from fastapi import FastAPI
 
 # data
 df = pd.read_csv("app_train_sample_clean.csv")
-# TODO : load shap values
+
+
+###################################
+# TODO : load shap values object
+###################################
+
+
+###################################
+# TODO : load model ML
+###################################
+
+
+def manual_fillna(value):
+    """ """
+
+    if isinstance(value, (int, float, str)):
+
+        if isinstance(value, float):
+            return round(value, 4)
+        return value
+
+    return f"NAN : {str(type(value))}"
+
+
+def convert_dictionary(original_dict: dict[Hashable, Any]) -> dict[str, Any]:
+    """fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> dict[str, Any]
+
+    :param  original_dict: dictionnaire d'entrée de la fonction
+
+    returns dict[str, Any]
+    """
+
+    new_dict = {str(key): value for key, value in original_dict.items()}
+
+    return new_dict
+
+
+def convert_dict_to_list(input_dict: dict[Hashable, Any]) -> list[tuple[str, Any]]:
+    """fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> list[tuple[str, Any]]
+
+    :param  original_dict: dictionnaire d'entrée de la fonction
+
+    returns list[tuple[str, Any]]
+    """
+
+    result_list = [(str(key), value) for key, value in input_dict.items()]
+
+    return result_list
+
+
+# app
+app = FastAPI()
 
 
 @app.get("/")
@@ -48,39 +73,33 @@ def root():
     return {"Hello": "World"}
 
 
-@app.get("/list_ids")
+@app.get("/get_list_ids")
 def get_list_ids():
     """Return list of ids"""
 
-    return {"list_ids":  df["ID_CLIENT"].tolist()}
+    return {"list_ids": df["ID_CLIENT"].tolist()}
 
 
 @app.get("/get_population_summary/")
 def get_population_summary():
     """Return population summary"""
 
-    # load the df
-    # build the describe of the df
-    # round 2 values if needed
-    # return the describe
-    select_columns = ["AGE","REVENU_TOTAL","CNT_FAM_MEMBERS"]
-    select_data = df[select_columns].describe().round(2).to_dict()
-    list_population = convert_dictionary(select_data)
-   
-    return {"population_summary": list_population}
+    # select_columns = ["AGE", "REVENU_TOTAL", "CNT_FAM_MEMBERS"]
 
+    select_data = df.iloc[:, :20].describe().round(2).to_dict()
+    list_population = convert_dictionary(select_data)
+
+    return {"population_summary": list_population}
 
 
 @app.get("/get_client_info/{client_id}")
 def get_client_info(client_id: int):
     """Return data dict for a client"""
 
-    # load the df
-    # find the client with his id
-    # build dict with all variables
-    # return the dict
     select_row = df.loc[df["ID_CLIENT"] == client_id].to_dict()
     client_info = convert_dictionary(select_row)
+
+    client_info = {k: manual_fillna(v) for k, v in client_info.items()}
 
     return {"client_info": client_info}
 
@@ -94,6 +113,10 @@ def get_prediction(client_id):
     # transform if needed the vector client
     # perform the .predict of this client
     # return the prediction
+
+    ###################
+    # TODO : code this
+    ###################
 
     client_predit = {
         "0": 0.55,
@@ -112,6 +135,10 @@ def get_shap(client_id):
     # transform if needed the vector client
     # perform the shap values computation of this client
     # return the values
+
+    ###################
+    # TODO : code this
+    ###################
 
     client_shap = {
         "AGE": 0.001,
