@@ -25,28 +25,43 @@ df = pd.read_csv("app_train_sample_clean.csv")
 
 
 def manual_fillna(value):
-    """ """
+    """Remplace les valeurs manquantes (NaN) dans des données."""
 
-    if isinstance(value, (int, float, str)):
+    # Vérifie si la valeur est une liste est qu'elle n'est pas vide
+    if isinstance(value, list) and len(value) > 0:
 
-        if isinstance(value, float):
-            return round(value, 4)
-        return value
+        # Récupère le premier élément de la liste
+        first = value[0]
+        # vérifie si le premier élément de la liste est de type int, float ou str
+        if isinstance(first, (int, float, str)):
 
+            # si c'est un float, arrondit chaque élément de la liste à 4 décimal
+            if isinstance(first, float):
+                return [round(v, 4) for v in value]
+            
+            # si c'est pas un float renvoie la liste telle quelle
+            return value
+    # si la valeur n'est pas une liste valide, renvoie un message indiquant que la valeur est manquante
     return f"NAN : {str(type(value))}"
 
 
 def convert_dictionary(original_dict: dict[Hashable, Any]) -> dict[str, Any]:
-    """fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> dict[str, Any]
+    """fonction permettant de convertir un dictionnaire imbriqué -> dictionnaire simple
 
     :param  original_dict: dictionnaire d'entrée de la fonction
 
     returns dict[str, Any]
     """
+    dict_entry = {}  # Crée un nouveau dictionnaire vide pour stocker les entrées converties.
 
-    new_dict = {str(key): value for key, value in original_dict.items()}
+    for attr, val in original_dict.items():
+        val_temp = [v for v in val.values()]  # Crée une liste des valeurs associées à l'attribut.
+        dict_entry[attr] = val_temp  # Stocke l'attribut et sa liste de valeurs dans le nouveau dictionnaire.
 
-    return new_dict
+    return dict_entry  # Renvoie le nouveau dictionnaire créé.
+
+
+
 
 
 def convert_dict_to_list(input_dict: dict[Hashable, Any]) -> list[tuple[str, Any]]:
