@@ -5,11 +5,11 @@ Main file of the API
 import json
 import pickle as pk
 from typing import Any, Hashable
-
+from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import requests
 from fastapi import FastAPI
-
+import shap
 # data
 df = pd.read_csv("app_train_sample_clean.csv")
 
@@ -125,20 +125,11 @@ def get_prediction(client_id):
 
     # load the df
     # find the client with his id
+    select_row = df.loc[df["ID_CLIENT"] == client_id]
     # transform if needed the vector client
     # perform the .predict of this client
     # return the prediction
-
-    ###################
-    # TODO : code this
-    ###################
-
-    client_predit = {
-        "0": 0.55,
-        "1": 0.45,
-    }
-
-    return {"client_predit": client_predit}
+    return {"client_predit": prediction}
 
 
 @app.get("/get_shap/{client_id}")
@@ -146,11 +137,12 @@ def get_shap(client_id):
     """Return shap values for a client"""
 
     # load the df
+    select_row = df.loc[df["ID_CLIENT"] == client_id].to_dict()
     # find the client with his id
+    client_info = convert_dictionary(select_row)
     # transform if needed the vector client
     # perform the shap values computation of this client
-    # return the values
-
+    
     ###################
     # TODO : code this
     ###################
