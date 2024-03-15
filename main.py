@@ -137,8 +137,9 @@ def get_shap(client_id):
     """Return shap values for a client"""
 
     # load the df
-    select_row = df.loc[df["ID_CLIENT"] == client_id].to_dict()
     # find the client with his id
+    select_row = df.loc[df["ID_CLIENT"] == client_id].to_dict()
+    
     client_info = convert_dictionary(select_row)
     # transform if needed the vector client
     # perform the shap values computation of this client
