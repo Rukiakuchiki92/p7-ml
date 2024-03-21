@@ -12,6 +12,7 @@ matplotlib
 
 # ml 
 scikit-learn
+imbalanced-learn
 shap
 lime
 
