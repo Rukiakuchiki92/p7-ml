@@ -5,11 +5,11 @@ Main file of the API
 import json
 import pickle as pk
 from typing import Any, Hashable
-from sklearn.preprocessing import MinMaxScaler
+
 import pandas as pd
 import requests
 from fastapi import FastAPI
-import shap
+
 # data
 df = pd.read_csv("app_train_sample_clean.csv")
 
@@ -25,43 +25,28 @@ df = pd.read_csv("app_train_sample_clean.csv")
 
 
 def manual_fillna(value):
-    """Remplace les valeurs manquantes (NaN) dans des données."""
+    """ """
 
-    # Vérifie si la valeur est une liste est qu'elle n'est pas vide
-    if isinstance(value, list) and len(value) > 0:
+    if isinstance(value, (int, float, str)):
 
-        # Récupère le premier élément de la liste
-        first = value[0]
-        # vérifie si le premier élément de la liste est de type int, float ou str
-        if isinstance(first, (int, float, str)):
+        if isinstance(value, float):
+            return round(value, 4)
+        return value
 
-            # si c'est un float, arrondit chaque élément de la liste à 4 décimal
-            if isinstance(first, float):
-                return [round(v, 4) for v in value]
-            
-            # si c'est pas un float renvoie la liste telle quelle
-            return value
-    # si la valeur n'est pas une liste valide, renvoie un message indiquant que la valeur est manquante
     return f"NAN : {str(type(value))}"
 
 
 def convert_dictionary(original_dict: dict[Hashable, Any]) -> dict[str, Any]:
-    """fonction permettant de convertir un dictionnaire imbriqué -> dictionnaire simple
+    """fonction permettant de convertir un dictionnaire de type dict[hashable,any] -> dict[str, Any]
 
     :param  original_dict: dictionnaire d'entrée de la fonction
 
     returns dict[str, Any]
     """
-    dict_entry = {}  # Crée un nouveau dictionnaire vide pour stocker les entrées converties.
 
-    for attr, val in original_dict.items():
-        val_temp = [v for v in val.values()]  # Crée une liste des valeurs associées à l'attribut.
-        dict_entry[attr] = val_temp  # Stocke l'attribut et sa liste de valeurs dans le nouveau dictionnaire.
+    new_dict = {str(key): value for key, value in original_dict.items()}
 
-    return dict_entry  # Renvoie le nouveau dictionnaire créé.
-
-
-
+    return new_dict
 
 
 def convert_dict_to_list(input_dict: dict[Hashable, Any]) -> list[tuple[str, Any]]:
@@ -129,7 +114,17 @@ def get_prediction(client_id):
     # transform if needed the vector client
     # perform the .predict of this client
     # return the prediction
-    return {"client_predit": prediction}
+
+    ###################
+    # TODO : code this
+    ###################
+
+    client_predit = {
+        "0": 0.55,
+        "1": 0.45,
+    }
+
+    return {"client_predit": client_predit}
 
 
 @app.get("/get_shap/{client_id}")
@@ -144,6 +139,10 @@ def get_shap(client_id):
     # transform if needed the vector client
     # perform the shap values computation of this client
     
+    ###################
+    # TODO : code this
+    ###################
+
     ###################
     # TODO : code this
     ###################
