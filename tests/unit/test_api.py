@@ -39,7 +39,6 @@ def client():
 class TestApi:
     """Test the api"""
 
-    # utiliser la convention de nommage de test (gherkin) 
     def test_root(self, client):
         """Test the / endpoint"""
 
@@ -53,7 +52,6 @@ class TestApi:
         msg = {"Hello": "World"}
         assert response.json() == msg
 
-    # utiliser la convention de nommage de test (gherkin) 
     def test_get_list_ids(self, client):
         """Test the get_list_ids endpoint"""
 
@@ -72,7 +70,6 @@ class TestApi:
         assert isinstance(li, list)
         assert li
 
-    # utiliser la convention de nommage de test (gherkin) 
     def test_get_population_summary(self, client):
         """Test the get_population_summary endpoint"""
 
@@ -93,7 +90,6 @@ class TestApi:
         # assert isinstance(li, list)
         # assert li
 
-    # utiliser la convention de nommage de test (gherkin) 
     @pytest.mark.parametrize("client_id", LIST_IDS)
     def test_get_client_info(self, client, client_id):
         """Test the get_client_info endpoint"""
