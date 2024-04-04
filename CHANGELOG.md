@@ -2,14 +2,15 @@
 
 
 ## Updated 
-- shap values  fucntions and helpers 
-- objects pk
-- "feature_importnce", explaination and explainer
+- shap values functions and helpers  ==> ?
+- objects pk exported
+- "feature_importance", explaination and explainer => exporté? 
 
 
 ## Todo 
-- in api : load pk feat imp, shap explainer and explaination
-- copy finctiopns shapit build_preporcess df in api file 
+- in api : 
+    * load_pk model, shap_explainer and shap_values computed from .pk object
+
 - for one id / custormer : 
     - give back specific shap values 
 
