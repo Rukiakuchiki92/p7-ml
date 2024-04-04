@@ -110,7 +110,6 @@ def get_prediction(client_id):
 
     # load the df
     # find the client with his id
-    select_row = df.loc[df["ID_CLIENT"] == client_id]
     # transform if needed the vector client
     # perform the .predict of this client
     # return the prediction
@@ -133,15 +132,9 @@ def get_shap(client_id):
 
     # load the df
     # find the client with his id
-    select_row = df.loc[df["ID_CLIENT"] == client_id].to_dict()
-    
-    client_info = convert_dictionary(select_row)
     # transform if needed the vector client
     # perform the shap values computation of this client
-    
-    ###################
-    # TODO : code this
-    ###################
+    # return the values
 
     ###################
     # TODO : code this
