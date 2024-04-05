@@ -5,10 +5,10 @@ Main file of the API
 import json
 import pickle as pk
 from typing import Any, Hashable
-
+import hashlib
 import pandas as pd
-import requests
-from fastapi import FastAPI
+import traceback
+from fastapi import FastAPI, File, UploadFile
 
 # data
 df = pd.read_csv("app_train_sample_clean.csv")
@@ -125,25 +125,26 @@ def get_prediction(client_id):
 
     return {"client_predit": client_predit}
 
+def compute_sha1(file_content):
+    sha1 = hashlib.sha1()
+    sha1.update(file_content)
+    return sha1.hexdigest()
 
-@app.get("/get_shap/{client_id}")
-def get_shap(client_id):
+@app.get("/get_shap/")
+async def get_shap():
     """Return shap values for a client"""
+    try:
+            
+            # Load the pickled data
+        with open("feat_importance.pk", "rb") as f:
+            contents = f.read()
 
-    # load the df
-    # find the client with his id
-    # transform if needed the vector client
-    # perform the shap values computation of this client
-    # return the values
 
-    ###################
-    # TODO : code this
-    ###################
-
-    client_shap = {
-        "AGE": 0.001,
-        "SALARY": 0.122,
-        "FLAG_OWN_CAR": -0.34,
-    }
-
-    return {"client_shap": client_shap}
+        loaded_data = pk.loads(contents)
+        return {"status": "success", "file_content": loaded_data}
+    except FileNotFoundError:
+        return {"status": "error", "message": "Fichier introuvable."}
+    except pk.UnpicklingError as e:
+        return {"status": "error", "message": "Erreur lors du chargement des données picklées : " + str(e)}
+    except Exception as e:
+        return {"status": "error", "message": traceback.format_exc()}
