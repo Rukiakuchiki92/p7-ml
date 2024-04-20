@@ -8,6 +8,10 @@ pip freeze > requirements.txt # Freeze packages to text file
 deactivate # Deactivate venv
 ```
 
+``` powershell
+pip list --outdated | Select-Object -Skip 2 | Select-String "^\S+" | ForEach-Object { pip install --upgrade $_.Matches[0].Value } # mettre à jours tout tes packages python en powershell
+```
+
 # command git utile
 
 ``` bash
