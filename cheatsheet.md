@@ -28,7 +28,7 @@ http://127.0.0.1:8000
 
 
 # lancement server uvicorn
-uvicorn main:app --reload
+uvicorn main_copy:app --reload
 
 # à quoi sert postman
 

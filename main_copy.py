@@ -22,6 +22,8 @@ def lecture_x_test_original_clean():
     return x_test_clean
 
 
+
+
 #################################################
 # Lecture du modèle de prédiction et des scores #
 #################################################
@@ -38,8 +40,8 @@ y_pred_proba_df = pd.concat([y_pred_proba_df['proba_classe_1'],lecture_x_test_or
 # Récupération de la décision
 y_pred_rf_df = pd.DataFrame(y_pred_rf, columns=['prediction'])
 y_pred_rf_df = pd.concat([y_pred_rf_df, lecture_x_test_original_clean()['ID_CLIENT']], axis=1)
-y_pred_rf_df['client'] = np.where(y_pred_rf_df.prediction == 1, "non solvable", "solvable")
-y_pred_rf_df['decision'] = np.where(y_pred_rf_df.prediction == 1, "refuser", "accorder")
+y_pred_rf_df['client'] = np.where(y_pred_rf_df.prediction == 1, "Le client n'est pas solvable 💸🚫  ", "Le client est solvable 💰🥳 ")
+y_pred_rf_df['decision'] = np.where(y_pred_rf_df.prediction == 1, "CRÉDIT NON ACCORDÉ 🚫", "CRÉDIT ACCORDÉ 🥳")
 
 # app
 app = FastAPI()
@@ -66,4 +68,17 @@ def predict(id_client: int):
     liste = [{"number": number, "prediction": prediction, "solvabilite": solvabilite, "decision": decision}]    
     return liste
 
+
+# Définir la route pour récupérer les informations du client en fonction de son ID
+@app.get("/client_info/{client_id}")
+def get_client_info(client_id: int):
+    # Recherche des informations du client en fonction de son ID dans les données nettoyées
+    client_info = lecture_x_test_original_clean()[lecture_x_test_original_clean()['ID_CLIENT'] == client_id].to_dict(orient='records')
+    
+    # Si le client est trouvé, renvoyer ses informations
+    if client_info:
+        return client_info[0]
+    # Sinon, renvoyer un message d'erreur
+    else:
+        return {"error": "Client not found"}
 
