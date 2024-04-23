@@ -5,11 +5,13 @@ import pandas as pd
 import traceback
 from fastapi import FastAPI,Form, File, UploadFile
 import numpy as np
-
+import shap
+import pickle as pk
 
 ########################
 # Lecture des fichiers #
 ########################
+
 
 def lecture_x_test_original ():
     x_test_original = pd.read_csv("app_train_sample.csv")
@@ -21,8 +23,9 @@ def lecture_x_test_original_clean():
     x_test_clean = pd.read_csv("app_train_sample_clean.csv")
     return x_test_clean
 
-
-
+# Charger les valeurs SHAP depuis le fichier
+with open("shap.pk", "rb") as f:
+    shap_values = pk.load(f)
 
 #################################################
 # Lecture du modèle de prédiction et des scores #
