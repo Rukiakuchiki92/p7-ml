@@ -8,6 +8,10 @@ import numpy as np
 import shap
 import pickle as pk
 
+# Créer une instance de l'application FastAPI
+app = FastAPI()
+
+
 ########################
 # Lecture des fichiers #
 ########################
@@ -23,9 +27,9 @@ def lecture_x_test_original_clean():
     x_test_clean = pd.read_csv("app_train_sample_clean.csv")
     return x_test_clean
 
-# Charger les valeurs SHAP depuis le fichier
-with open("shap.pk", "rb") as f:
-    shap_values = pk.load(f)
+# Charger le dictionnaire des valeurs SHAP
+shap_dict = load("shap_dict.joblib")
+
 
 #################################################
 # Lecture du modèle de prédiction et des scores #
@@ -85,3 +89,32 @@ def get_client_info(client_id: int):
     else:
         return {"error": "Client not found"}
 
+
+
+@app.get("/shap_values/{client_id}")
+def get_shap_values(client_id: int):  
+    # Débogage : afficher l'ID_CLIENT reçu dans la requête
+    print(f"ID_CLIENT reçu : {client_id}")
+    
+    # Vérifier si l'ID_CLIENT existe dans le dictionnaire shap_dict
+    if client_id in shap_dict:
+        # Débogage : afficher un message si l'ID_CLIENT est trouvé
+        print("ID_CLIENT trouvé dans le dictionnaire shap_dict")
+        
+        # Récupérer les valeurs SHAP associées à cet ID_CLIENT
+        shap_values_for_client = shap_dict[client_id]
+        
+        # Lecture des données nettoyées
+        x_test_clean = lecture_x_test_original_clean()
+        
+        # Récupérer les informations du client en fonction de son ID
+        client_info = x_test_clean[x_test_clean['ID_CLIENT'] == client_id].to_dict(orient='records')
+        
+        # Retourner les valeurs SHAP et les informations du client
+        return {"shap_values": shap_values_for_client, "client_info": client_info}
+    else:
+        # Débogage : afficher un message si l'ID_CLIENT n'est pas trouvé
+        print("ID_CLIENT non trouvé dans le dictionnaire shap_dict")
+        
+        # Retourner un message d'erreur
+        return {"error": "ID_CLIENT not found"}
