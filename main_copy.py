@@ -27,9 +27,9 @@ def lecture_x_test_original_clean():
     x_test_clean = pd.read_csv("app_train_sample_clean.csv")
     return x_test_clean
 
-# Charger le dictionnaire des valeurs SHAP
-shap_dict = load("shap_dict.joblib")
 
+
+shap_dict = load("shap_dict.joblib")
 
 #################################################
 # Lecture du modèle de prédiction et des scores #
@@ -91,30 +91,24 @@ def get_client_info(client_id: int):
 
 
 
-@app.get("/shap_values/{client_id}")
-def get_shap_values(client_id: int):  
-    # Débogage : afficher l'ID_CLIENT reçu dans la requête
-    print(f"ID_CLIENT reçu : {client_id}")
+@app.get('/Shap/{client_id}')
+def client_shap_df(client_id: int):
+
+    all_client_ids = lecture_x_test_original_clean()['ID_CLIENT'].tolist()
+
+    if client_id not in all_client_ids:
+        return {"error": "Client's ID not found"}
+
+    client_data = lecture_x_test_original_clean()[lecture_x_test_original_clean()['ID_CLIENT'] == client_id]
     
-    # Vérifier si l'ID_CLIENT existe dans le dictionnaire shap_dict
-    if client_id in shap_dict:
-        # Débogage : afficher un message si l'ID_CLIENT est trouvé
-        print("ID_CLIENT trouvé dans le dictionnaire shap_dict")
-        
-        # Récupérer les valeurs SHAP associées à cet ID_CLIENT
-        shap_values_for_client = shap_dict[client_id]
-        
-        # Lecture des données nettoyées
-        x_test_clean = lecture_x_test_original_clean()
-        
-        # Récupérer les informations du client en fonction de son ID
-        client_info = x_test_clean[x_test_clean['ID_CLIENT'] == client_id].to_dict(orient='records')
-        
-        # Retourner les valeurs SHAP et les informations du client
-        return {"shap_values": shap_values_for_client, "client_info": client_info}
-    else:
-        # Débogage : afficher un message si l'ID_CLIENT n'est pas trouvé
-        print("ID_CLIENT non trouvé dans le dictionnaire shap_dict")
-        
-        # Retourner un message d'erreur
-        return {"error": "ID_CLIENT not found"}
+    if client_data.empty:
+        return {"error": "Client data not available"}
+    
+    client_data = client_data[client_data['ID_CLIENT'] == client_id].index[0]  # Select the first row
+
+    shap_values = shap_dict[client_data]
+
+    # Convert SHAP values to a JSON-compatible format
+    shap_json = {"shap_values": shap_values}
+
+    return shap_json
