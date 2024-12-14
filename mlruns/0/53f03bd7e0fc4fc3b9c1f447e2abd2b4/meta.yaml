@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/53f03bd7e0fc4fc3b9c1f447e2abd2b4/artifacts
+end_time: 1724496811688
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 53f03bd7e0fc4fc3b9c1f447e2abd2b4
+run_name: gaudy-stag-988
+run_uuid: 53f03bd7e0fc4fc3b9c1f447e2abd2b4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1724496069107
+status: 3
+tags: []
+user_id: amel

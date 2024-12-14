@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/9cb0e2377b9542ed852367fa5950dba8/artifacts
+end_time: 1719687393108
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9cb0e2377b9542ed852367fa5950dba8
+run_name: spiffy-hog-767
+run_uuid: 9cb0e2377b9542ed852367fa5950dba8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719685630136
+status: 3
+tags: []
+user_id: amel

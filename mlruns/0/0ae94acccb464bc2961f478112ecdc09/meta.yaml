@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/0ae94acccb464bc2961f478112ecdc09/artifacts
+end_time: 1722248416299
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0ae94acccb464bc2961f478112ecdc09
+run_name: clean-squirrel-282
+run_uuid: 0ae94acccb464bc2961f478112ecdc09
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722247450276
+status: 3
+tags: []
+user_id: amel

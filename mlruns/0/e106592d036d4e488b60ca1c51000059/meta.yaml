@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/e106592d036d4e488b60ca1c51000059/artifacts
+end_time: 1722248423273
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e106592d036d4e488b60ca1c51000059
+run_name: rare-stork-993
+run_uuid: e106592d036d4e488b60ca1c51000059
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722248416331
+status: 3
+tags: []
+user_id: amel

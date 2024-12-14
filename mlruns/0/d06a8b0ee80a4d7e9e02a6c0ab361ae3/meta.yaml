@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/d06a8b0ee80a4d7e9e02a6c0ab361ae3/artifacts
+end_time: 1734182788618
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d06a8b0ee80a4d7e9e02a6c0ab361ae3
+run_name: thundering-whale-714
+run_uuid: d06a8b0ee80a4d7e9e02a6c0ab361ae3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734182783572
+status: 3
+tags: []
+user_id: amel

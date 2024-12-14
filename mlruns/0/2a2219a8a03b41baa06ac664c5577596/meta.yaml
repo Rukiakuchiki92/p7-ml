@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/2a2219a8a03b41baa06ac664c5577596/artifacts
+end_time: 1727778722801
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2a2219a8a03b41baa06ac664c5577596
+run_name: caring-squid-728
+run_uuid: 2a2219a8a03b41baa06ac664c5577596
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727778718287
+status: 3
+tags: []
+user_id: amel

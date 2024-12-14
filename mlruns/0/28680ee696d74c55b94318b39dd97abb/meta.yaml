@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/28680ee696d74c55b94318b39dd97abb/artifacts
+end_time: 1718473731527
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 28680ee696d74c55b94318b39dd97abb
+run_name: treasured-hound-267
+run_uuid: 28680ee696d74c55b94318b39dd97abb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1718473722426
+status: 3
+tags: []
+user_id: amel

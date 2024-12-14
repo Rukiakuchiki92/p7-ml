@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/a9868c7b834c4b5eb2fe25436421c881/artifacts
+end_time: 1727721265562
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a9868c7b834c4b5eb2fe25436421c881
+run_name: inquisitive-rat-87
+run_uuid: a9868c7b834c4b5eb2fe25436421c881
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727719713506
+status: 3
+tags: []
+user_id: amel

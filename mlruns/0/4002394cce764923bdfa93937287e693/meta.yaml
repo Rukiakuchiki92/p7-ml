@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/4002394cce764923bdfa93937287e693/artifacts
+end_time: 1719070211639
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4002394cce764923bdfa93937287e693
+run_name: overjoyed-hog-90
+run_uuid: 4002394cce764923bdfa93937287e693
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719070184679
+status: 3
+tags: []
+user_id: amel

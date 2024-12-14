@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/5f3daf8827604b478e5370ba337ccbd0/artifacts
+end_time: 1720024794929
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5f3daf8827604b478e5370ba337ccbd0
+run_name: languid-mouse-895
+run_uuid: 5f3daf8827604b478e5370ba337ccbd0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720024539370
+status: 3
+tags: []
+user_id: amel

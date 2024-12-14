@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/e8340f48ca9f4e8b818c0595349dc2bf/artifacts
+end_time: 1721326852600
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e8340f48ca9f4e8b818c0595349dc2bf
+run_name: fearless-grub-62
+run_uuid: e8340f48ca9f4e8b818c0595349dc2bf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721326846820
+status: 3
+tags: []
+user_id: amel

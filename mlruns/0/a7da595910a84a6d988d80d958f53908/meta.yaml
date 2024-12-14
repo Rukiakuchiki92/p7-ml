@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/a7da595910a84a6d988d80d958f53908/artifacts
+end_time: 1721326471139
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a7da595910a84a6d988d80d958f53908
+run_name: agreeable-shrike-141
+run_uuid: a7da595910a84a6d988d80d958f53908
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721325869502
+status: 4
+tags: []
+user_id: amel

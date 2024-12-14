@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/18a17dc7b18641e293b766398723f6fa/artifacts
+end_time: 1721326742380
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 18a17dc7b18641e293b766398723f6fa
+run_name: dashing-mole-385
+run_uuid: 18a17dc7b18641e293b766398723f6fa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1721326705734
+status: 3
+tags: []
+user_id: amel

@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/a2e15624dcf1483ba3b5b8d50ca49375/artifacts
+end_time: 1719075393743
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a2e15624dcf1483ba3b5b8d50ca49375
+run_name: skittish-goat-875
+run_uuid: a2e15624dcf1483ba3b5b8d50ca49375
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719075388289
+status: 3
+tags: []
+user_id: amel

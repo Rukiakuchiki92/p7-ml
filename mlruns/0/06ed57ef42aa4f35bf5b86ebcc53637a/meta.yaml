@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/06ed57ef42aa4f35bf5b86ebcc53637a/artifacts
+end_time: 1727721270447
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 06ed57ef42aa4f35bf5b86ebcc53637a
+run_name: gifted-crane-849
+run_uuid: 06ed57ef42aa4f35bf5b86ebcc53637a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727721265588
+status: 3
+tags: []
+user_id: amel

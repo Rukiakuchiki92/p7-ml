@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/b25b725c1c56493b827e167b40a4649f/artifacts
+end_time: 1734181673006
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b25b725c1c56493b827e167b40a4649f
+run_name: useful-squid-288
+run_uuid: b25b725c1c56493b827e167b40a4649f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734181125912
+status: 4
+tags: []
+user_id: amel
