@@ -1,0 +1,46 @@
+artifact_path: rf_model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.0
+mlflow_version: 2.13.2
+model_size_bytes: 542153
+model_uuid: 79e2d752bbbc4659927211a0510b0ff6
+run_id: 4895f2108cbb4d94b898e408f5258bfc
+signature:
+  inputs: '[{"type": "long", "name": "AGE", "required": true}, {"type": "long", "name":
+    "YEARS_EMPLOYED", "required": true}, {"type": "double", "name": "TOTAL_CREDIT",
+    "required": true}, {"type": "double", "name": "REMB_MENSUEL", "required": true},
+    {"type": "double", "name": "CNT_FAM_MEMBERS", "required": true}, {"type": "double",
+    "name": "MONTANT_PRIX_BIENS", "required": true}, {"type": "double", "name": "REVENU_TOTAL",
+    "required": true}, {"type": "double", "name": "SOURCE_EXTERNE_2", "required":
+    true}, {"type": "long", "name": "FLAG_DOCUMENT_3", "required": true}, {"type":
+    "long", "name": "FLAG_DOCUMENT_6", "required": true}, {"type": "long", "name":
+    "FLAG_DOCUMENT_8", "required": true}, {"type": "long", "name": "TYPE_CONTRAT_Revolving
+    loans", "required": true}, {"type": "long", "name": "STATUT_FAMILIAL_Married",
+    "required": true}, {"type": "long", "name": "STATUT_FAMILIAL_Separated", "required":
+    true}, {"type": "long", "name": "STATUT_FAMILIAL_Single / not married", "required":
+    true}, {"type": "long", "name": "STATUT_FAMILIAL_Widow", "required": true}, {"type":
+    "long", "name": "PROPRIETAIRE_BIEN_IMMO_Y", "required": true}, {"type": "long",
+    "name": "TYPE_REVENUS_Maternity leave", "required": true}, {"type": "long", "name":
+    "TYPE_REVENUS_State servant", "required": true}, {"type": "long", "name": "TYPE_REVENUS_Working",
+    "required": true}, {"type": "long", "name": "GENRE_M", "required": true}, {"type":
+    "long", "name": "NIVEAU_EDUCATION_Higher education", "required": true}, {"type":
+    "long", "name": "NIVEAU_EDUCATION_Incomplete higher", "required": true}, {"type":
+    "long", "name": "NIVEAU_EDUCATION_Lower secondary", "required": true}, {"type":
+    "long", "name": "NIVEAU_EDUCATION_Secondary / secondary special", "required":
+    true}, {"type": "long", "name": "PROPRIETAIRE_VOITURE_Y", "required": true}, {"type":
+    "double", "name": "nbr_membre", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2024-08-24 10:53:34.129404'
