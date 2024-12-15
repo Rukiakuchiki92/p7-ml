@@ -2,7 +2,7 @@
 
 ``` bash
 python -m venv venv # Create virtual environment
-source venv/Scripts/activate # Activate virtual environment
+source venv/Scripts/activate (or) source .venv/Scripts/activate  # Activate virtual environment
 pip install pandas # Install your packages
 pip freeze > requirements.txt # Freeze packages to text file
 deactivate # Deactivate venv
@@ -28,7 +28,10 @@ http://127.0.0.1:8000
 
 
 # lancement server uvicorn
-python uvicorn main_copy:app --reload
+
+quand tu es dans un environement venv utilise cette commande : `uvicorn main_copy:app --reload`
+sinon celle-ci :
+`python uvicorn main_copy:app --reload`
 
 # à quoi sert postman
 
