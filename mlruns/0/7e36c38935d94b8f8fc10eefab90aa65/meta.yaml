@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/7e36c38935d94b8f8fc10eefab90aa65/artifacts
+end_time: 1734189567291
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7e36c38935d94b8f8fc10eefab90aa65
+run_name: illustrious-rook-323
+run_uuid: 7e36c38935d94b8f8fc10eefab90aa65
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734189558534
+status: 3
+tags: []
+user_id: amel

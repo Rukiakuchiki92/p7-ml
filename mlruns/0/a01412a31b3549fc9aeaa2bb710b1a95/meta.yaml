@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/a01412a31b3549fc9aeaa2bb710b1a95/artifacts
+end_time: 1734282303796
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a01412a31b3549fc9aeaa2bb710b1a95
+run_name: burly-stork-870
+run_uuid: a01412a31b3549fc9aeaa2bb710b1a95
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734281223545
+status: 4
+tags: []
+user_id: amel

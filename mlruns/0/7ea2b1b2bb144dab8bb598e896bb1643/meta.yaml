@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Projet/P07/P07_Implementez_outils_scoring/p7-ml/mlruns/0/7ea2b1b2bb144dab8bb598e896bb1643/artifacts
+end_time: 1734189558418
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7ea2b1b2bb144dab8bb598e896bb1643
+run_name: sneaky-steed-362
+run_uuid: 7ea2b1b2bb144dab8bb598e896bb1643
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734187965138
+status: 3
+tags: []
+user_id: amel
