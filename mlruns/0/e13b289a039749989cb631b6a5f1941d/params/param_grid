@@ -1,0 +1,1 @@
+{'n_estimators': [100, 150], 'max_depth': [3, 6], 'learning_rate': [0.1, 0.2], 'subsample': [0.7, 1.0], 'colsample_bytree': [0.8, 1.0], 'gamma': [0, 1], 'min_child_weight': [1, 3]}

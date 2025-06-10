@@ -1,0 +1,1 @@
+make_scorer(fonction_metier, response_method='predict')

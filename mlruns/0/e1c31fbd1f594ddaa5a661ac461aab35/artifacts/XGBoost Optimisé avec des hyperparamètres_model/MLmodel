@@ -1,0 +1,24 @@
+artifact_path: "XGBoost Optimis\xE9 avec des hyperparam\xE8tres_model"
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.0
+mlflow_version: 2.19.0
+model_size_bytes: 528248
+model_uuid: 1266c73bfb614006800ae59668240018
+run_id: e1c31fbd1f594ddaa5a661ac461aab35
+saved_input_example_info:
+  artifact_path: input_example.json
+  serving_input_path: serving_input_example.json
+  type: json_object
+utc_time_created: '2025-01-24 15:26:26.067290'

@@ -1,0 +1,6 @@
+{
+  "f1_score_caracteristiques_client_test": "f1_score(y_true=cible_client_test, y_pred=<ndarray>)",
+  "fbeta_score_caracteristiques_client_test": "fbeta_score(y_true=cible_client_test, y_pred=<ndarray>, beta=1)",
+  "precision_score_caracteristiques_client_test": "precision_score(y_true=cible_client_test, y_pred=<ndarray>)",
+  "recall_score_caracteristiques_client_test": "recall_score(y_true=cible_client_test, y_pred=<ndarray>)"
+}
