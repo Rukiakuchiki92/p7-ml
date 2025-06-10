@@ -1,3 +1,0 @@
-Pipeline(steps=[('smote', SMOTE(random_state=0)),
-                ('under', RandomUnderSampler(random_state=0)),
-                ('rf', RandomForestClassifier(random_state=0))])

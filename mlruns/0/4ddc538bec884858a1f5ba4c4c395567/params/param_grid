@@ -1,1 +1,0 @@
-{'rf__n_estimators': [100, 300], 'rf__max_depth': [10, 20], 'rf__min_samples_split': [5, 10], 'rf__min_samples_leaf': [2, 4], 'rf__bootstrap': [True]}
